@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+	prefer="system">
+	<system systemId="http://localhost/wsdl/PDQSupplier.wsdl" uri="wsdl/PDQSupplier.wsdl" />
+	<system systemId="http://localhost/wsdl/PIXManager.wsdl" uri="wsdl/PIXManager.wsdl"/>
+</catalog>

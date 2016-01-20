@@ -3,6 +3,8 @@
  */
 package br.com.ciaware.springmvc.ensaio.controller;
 
+import java.util.logging.Logger;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController  {
 	
 	@RequestMapping("/")
-	public void index() {
-		
+	public String  index() {
+
+		return "home";
 	}
 }

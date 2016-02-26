@@ -3,12 +3,17 @@
  */
 package br.com.ciaware.springmvc.ensaio.config;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.ciaware.springmvc.ensaio.controller.HomeController;
+import br.com.ciaware.springmvc.ensaio.controller.ProdutoController;
+import br.com.ciaware.springmvc.ensaio.dal.ProdutoDao;
+import br.com.ciaware.springmvc.ensaio.models.Produto;
 
 /**
  * CIAware :: Centro de Informatizações e Análises
@@ -20,7 +25,7 @@ import br.com.ciaware.springmvc.ensaio.controller.HomeController;
  *
  */
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class})
+@ComponentScan(basePackageClasses={HomeController.class, ProdutoDao.class, Produto.class})
 public class AppWebConfiguration {
 	
 	@Bean
@@ -30,4 +35,15 @@ public class AppWebConfiguration {
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
+	
+	@Bean
+	public MessageSource messageSource() {
+		ReloadableResourceBundleMessageSource result = new ReloadableResourceBundleMessageSource();
+		result.setBasename("/WEB-INF/messages");
+		result.setDefaultEncoding("UTF-8");
+		result.setCacheSeconds(1);
+		
+		return result;
+	}
+	
 }

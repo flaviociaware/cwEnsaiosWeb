@@ -3,6 +3,9 @@
  */
 package br.com.ciaware.springmvc.ensaio.config;
 
+import javax.servlet.Filter;
+
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -29,7 +32,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	 */
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { AppWebConfiguration.class };
+		return new Class[] { AppWebConfiguration.class, JPAConfiguration.class };
 	}
 
 	/* (non-Javadoc)
@@ -40,4 +43,15 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		return new String[] { "/" };
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see org.springframework.web.servlet.support.AbstractDispatcherServletInitializer#getServletFilters()
+	 */
+	@Override
+	protected Filter[] getServletFilters() {
+		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+        encodingFilter.setEncoding("UTF-8");
+
+        return new Filter[] {encodingFilter};
+	}
 }

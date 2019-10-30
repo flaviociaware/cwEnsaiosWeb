@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>VRaptor Blank Project Angular</title>
+<title>Vraptor - ${title }</title>
+ <meta name="description" content="${description }">
 </head>
 <body ng-app="vraptor">
 
